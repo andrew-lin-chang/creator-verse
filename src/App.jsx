@@ -1,29 +1,45 @@
 import { useState, useEffect } from "react";
-import Layout from "./Layout";
-import ShowCreators from "./pages/ShowCreators";
 import { supabase } from "./client";
+import { useRoutes } from "react-router-dom";
+
+import AddCreator from "./pages/AddCreator.jsx";
+import EditCreator from "./pages/EditCreator.jsx";
+import ShowCreators from "./pages/ShowCreators.jsx";
+import ViewCreator from "./pages/ViewCreator.jsx";
 
 function App() {
   const [creators, setCreators] = useState([]);
 
   useEffect(() => {
     getCreators();
+    console.log(creators)
   }, []);
 
   async function getCreators() {
     const { data } = await supabase.from("creators").select();
-    console.log(data);
     setCreators(data);
   }
 
-  return (
-    <>
-      <Layout>
-        <h1 className="font-bold text-4xl tracking-tight">CreatorVerse</h1>
-        <ShowCreators creators={creators} />
-      </Layout>
-    </>
-  );
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <ShowCreators creators={creators} />,
+    },
+    {
+      path: "/creators/:name",
+      element: <ViewCreator creators={creators} />,
+    },
+    {
+      path: "/edit",
+      element: <EditCreator creators={creators} />,
+    },
+    {
+      path: "/add",
+      element: <AddCreator />,
+    },
+  ]);
+
+  return element;
 }
 
 export default App;
