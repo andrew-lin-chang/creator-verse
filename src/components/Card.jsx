@@ -1,4 +1,6 @@
-const extractHandle = (url) => {
+import { Link } from "react-router-dom";
+
+export const extractHandle = (url) => {
   const youtubePrefix = "https://www.youtube.com/";
   if (url.startsWith(youtubePrefix)) {
     return url.slice(youtubePrefix.length);
@@ -6,15 +8,21 @@ const extractHandle = (url) => {
   return null;
 };
 
+const truncate = (input) => {
+  return input?.length > 100 ? `${input.substring(0, 94)}...` : input;
+}
+
 export default function Card({ name, url, desc, image }) {
   return (
     <>
       <div className="flex bg-dark rounded-lg p-4 max-w-lg hover:scale-105 transform transition duration-200">
         <img className="rounded-full h-20 w-20 mr-4" src={image}></img>
         <div>
-          <h1 className="text-lg font-bold">{name}</h1>
-          <p className="mb-2">{extractHandle(url)}</p>
-          <p className="mb-2">{desc}</p>
+          <Link to={`/creators/${name.toLowerCase()}`}>
+            <h1 className="text-lg font-bold hover:underline">{name}</h1>
+          </Link>
+          <p className="mb-2 text-gray-400">{extractHandle(url)}</p>
+          <p className="mb-2">{truncate(desc)}</p>
           <div className="flex gap-2">
             <svg
               className="fill-primary h-8 w-8"
