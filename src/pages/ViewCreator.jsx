@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { extractHandle } from "../components/Card";
+import Loading from "../components/Loading";
+import { useState } from "react";
 
 export function CreatorDetails({ creator }) {
+
   return (
     <div>
       <div className="my-4">
@@ -41,9 +44,13 @@ export function CreatorDetails({ creator }) {
 export default function ViewCreator({ creators }) {
   const { name } = useParams();
 
-  const creator = creators.find((creator) => {
-    return name === creator.name.toLowerCase();
+  const creator = creators.find((c) => {
+    return name === c.name.toLowerCase();
   });
+
+  if(!creator) {
+    return <Loading />
+  }
 
   return (
     <div>
