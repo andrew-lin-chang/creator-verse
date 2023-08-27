@@ -1,10 +1,10 @@
-# WEB103 Prework - *👉🏿 youtuberverse*
+# WEB103 Prework - *youtuberverse*
 
-Submitted by: **👉🏿 Andrew Chang**
+Submitted by: **Andrew Chang**
 
-About this web app: **👉🏿 All of your favorite youtubers, all in one place. This web app supports CRUD operations on a Supabase database.**
+About this web app: **All of your favorite youtubers, all in one place. This web app supports CRUD operations on a Supabase database.**
 
-Time spent: **👉🏿 10** hours
+Time spent: **10** hours
 
 ## Required Features
 
@@ -35,10 +35,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='https://i.imgur.com/epiq7Rf.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='/public/youtuberverse.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  👉🏿 ScreenToGif
+GIF created with ... ScreenToGif
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -57,7 +57,7 @@ Describe any challenges encountered while building the app or any additional con
 
 ## License
 
-Copyright [👉🏿 2023] [👉🏿 Andrew Chang]
+Copyright [2023] [Andrew Chang]
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
