@@ -13,7 +13,7 @@ export function CreatorDetails({ creator }) {
         <p className="text-gray-300 text-xl">{extractHandle(creator.url)}</p>
       </div>
       <img className="rounded-full" src={creator.image} />
-      <div className="leading-relaxed my-6">{creator.desc}</div>
+      <div className="leading-relaxed my-6 text-xl">{creator.desc}</div>
       <div className="flex gap-6">
         <Link to={creator.url}>
           <div className="bg-primary px-6 py-2 rounded-xl grid place-items-center">
@@ -27,15 +27,17 @@ export function CreatorDetails({ creator }) {
           </div>
         </Link>
 
-        <div className="bg-primary px-6 py-2 rounded-xl grid place-items-center">
-          <svg
-            className="fill-white h-8 w-8"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M20.7,5.2a1.024,1.024,0,0,1,0,1.448L18.074,9.276l-3.35-3.35L17.35,3.3a1.024,1.024,0,0,1,1.448,0Zm-4.166,5.614-3.35-3.35L4.675,15.975,3,21l5.025-1.675Z"></path>
-          </svg>
-        </div>
+        <Link to={`/edit/${creator.name.toLowerCase()}`}>
+          <div className="bg-primary px-6 py-2 rounded-xl grid place-items-center">
+            <svg
+              className="fill-white h-10 w-10"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M20.7,5.2a1.024,1.024,0,0,1,0,1.448L18.074,9.276l-3.35-3.35L17.35,3.3a1.024,1.024,0,0,1,1.448,0Zm-4.166,5.614-3.35-3.35L4.675,15.975,3,21l5.025-1.675Z"></path>
+            </svg>
+          </div>
+        </Link>
       </div>
     </div>
   );
