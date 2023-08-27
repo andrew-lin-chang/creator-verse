@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "./client";
-import { useRoutes } from "react-router-dom";
+import { useRoutes, useLocation } from "react-router-dom";
 
 import AddCreator from "./pages/AddCreator.jsx";
 import EditCreator from "./pages/EditCreator.jsx";
@@ -8,16 +8,21 @@ import ShowCreators from "./pages/ShowCreators.jsx";
 import ViewCreator from "./pages/ViewCreator.jsx";
 
 function App() {
+  let location = useLocation();
   const [creators, setCreators] = useState([]);
 
   useEffect(() => {
     getCreators();
-    console.log(creators)
-  }, []);
+    console.log(creators);
+  }, [location]);
 
   async function getCreators() {
-    const { data } = await supabase.from("creators").select();
+    const { data, error } = await supabase.from("creators").select();
+    if (error) {
+      console.log(error);
+    }
     setCreators(data);
+    console.log(data);
   }
 
   const element = useRoutes([
@@ -30,7 +35,7 @@ function App() {
       element: <ViewCreator creators={creators} />,
     },
     {
-      path: "/edit",
+      path: "/edit/:name",
       element: <EditCreator creators={creators} />,
     },
     {
