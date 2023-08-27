@@ -1,4 +1,5 @@
 import Card from "../components/Card";
+import Add from "../components/Add";
 
 export default function ShowCreators({ creators }) {
   return (
@@ -12,6 +13,9 @@ export default function ShowCreators({ creators }) {
             <Card key={index} {...creator} />
           ))
         )}
+      </div>
+      <div className="grid place-items-center my-6">
+        <Add />
       </div>
     </div>
   );
